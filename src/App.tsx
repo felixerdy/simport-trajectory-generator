@@ -45,18 +45,17 @@ function App() {
           <button className="btn" onClick={handleClick}>
             Go
           </button>
-          <button className="btn disabled">
-            {trajectory && (
-              <a
-                // className="btn disabled"
-                href={`data:text/json;charset=utf-8,${encodeURIComponent(
-                  JSON.stringify(getFileContent(trajectory))
-                )}`}
-                download="sample-trajectory.json"
-              ></a>
-            )}
-            Download Json
-          </button>
+          {trajectory && (
+            <a
+              className="btn disabled"
+              href={`data:text/json;charset=utf-8,${encodeURIComponent(
+                JSON.stringify(getFileContent(trajectory))
+              )}`}
+              download="sample-trajectory.json"
+            >
+              Download Json
+            </a>
+          )}
         </aside>
         <main className="h-full flex-1 rounded-lg shadow overflow-hidden">
           <Map ref={mapRef}>
